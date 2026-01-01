@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Anwar & Mayar 💗</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: pink;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* القلوب كـ spans داخل body، تتحرك بدون تأثير على النص */
+.heart {
+  position: fixed;
+  font-size: 20px;
+  opacity: 0.7;
+  animation: float 10s infinite linear;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-50vh); opacity: 0; }
+}
+
+/* صندوق النصوص */
+.box {
+  background: rgba(255, 255, 255, 0.95);
+  width: 80%;
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+#page2 {
+  display: none;
+}
+
+input {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 15px;
+  width: 60%;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  background: hotpink;
+  color: white;
+  cursor: pointer;
+}
+
+.big-heart {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 2;
+  margin: 10px 0;
+}
+</style>
+</head>
+<body>
+
+<!-- قلوب خلفية تتحرك -->
+<script>
+const hearts = ["❤️","💗","💕","💖"];
+for(let i=0; i<30; i++){
+  let h = document.createElement("span");
+  h.className = "heart";
+  h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left = Math.random()*90 + "%";
+  h.style.top = Math.random()*90 + "vh";
+  h.style.fontSize = (15 + Math.random()*25) + "px";
+  h.style.animationDuration = (8 + Math.random()*5) + "s";
+  document.body.appendChild(h);
+}
+</script>
+
+<!-- الصفحة الأولى -->
+<div class="box" id="page1">
+  <div class="big-heart">💗 أنور & ميار 💗</div>
+  <p>اكتب الباسورد علشان تدخل الصفحة الحلوة 💌</p>
+  <input type="password" id="pass" placeholder="الباسورد">
+  <br>
+  <button onclick="check()">دخول</button>
+</div>
+
+<!-- الصفحة التانية -->
+<div class="box" id="page2">
+  <div class="big-heart">❤️ أنور & ميار ❤️</div>
+
+  <p>وجودك في حياتي مش صدفة، ده نعمة بحمد ربنا عليها كل يوم.</p>
+  <p>أنتِ الحاجة الحلوة اللي لما بفتكرها قلبي يهدى.</p>
+
+  <p>ميار، يا أجمل اسم نطقته شفايفي،</p>
+  <p>ضحكتك بتغير مزاجي، وكلامك بيريّحني، وأبسط حاجة منك بتفرق معايا قوي.</p>
+
+  <p>كل سنة تعدّي، وكل يوم يعدّي، وأنا أختارك إنتِ من أول وجديد، مش علشان لازم… علشان أنا عايز.</p>
+
+  <p>أنا بحبك في تفاصيلك، في صوتك، وفي طريقتك.</p>
+  <p>وفي لحظات سكوتك قبل كلامك.</p>
+
+  <p>لو الدنيا تعبتني، كفاية أسمع اسمك وصوتك، علشان أفتكر إن لسه في حاجة حلوة مستنياني.</p>
+
+  <p>إنتِ مش بس حبيبتي، إنتِ راحتي وأماني، وأجمل حاجة حصلت في قلبي.</p>
+
+  <p>ومتزعليش مني لو زعلتك في أي وقت أو عملت حاجة ضايقتك، أنا عمري ما أفكر أخسرك أبدًا، لأنك النور اللي منوّر حياتي كلها.</p>
+
+  <p>بحبك، ومش محتاج حاجة غير إنك بنوتي وجنبي 🤍</p>
+</div>
+
+<script>
+function check(){
+  var password = "2123"; // الباسورد
+  if(document.getElementById("pass").value === password){
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "block";
+    window.scrollTo(0,0); // يبدأ من فوق
+  } else {
+    alert("الباسورد غلط 💔");
+  }
+}
+</script>
+
+</body>
+</html>
